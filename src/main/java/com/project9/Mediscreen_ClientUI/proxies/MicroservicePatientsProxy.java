@@ -10,8 +10,7 @@ import com.project9.Mediscreen_ClientUI.beans.PatientBean;
 @FeignClient(name = "microservice-patient", url = "localhost:8081")
 public interface MicroservicePatientsProxy {
 
-//	@GetMapping(value = "/patients/list")
-	@RequestMapping(value = "/patients/list")
+	@RequestMapping(value = "/patients")
 	List<PatientBean> patientsList();
 
 }
