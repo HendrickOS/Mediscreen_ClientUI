@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project9.Mediscreen_ClientUI.beans.PatientBean;
@@ -11,9 +12,6 @@ import com.project9.Mediscreen_ClientUI.proxies.MicroservicePatientsProxy;
 
 @Controller
 public class PatientProxyController {
-
-//	@Autowired
-//	PatientService patientService;
 
 	private final MicroservicePatientsProxy patientsProxy;
 
@@ -28,10 +26,10 @@ public class PatientProxyController {
 		return "patient/list";
 	}
 
-//	@GetMapping("/patients/add")
-//	public String addPatient(Patient patient) {
-//		return "patient/add";
-//	}
+	@GetMapping("/patients/add")
+	public String addPatient() {
+		return "patient/add";
+	}
 //
 //	@PostMapping("/patients/validate")
 //	public String validate(@Valid Patient patient, BindingResult result, Model model) {
