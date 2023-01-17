@@ -2,9 +2,14 @@ package com.project9.Mediscreen_ClientUI.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project9.Mediscreen_ClientUI.beans.PatientBean;
@@ -27,46 +32,51 @@ public class PatientProxyController {
 	}
 
 	@GetMapping("/patients/add")
-	public String addPatient() {
+	public String addPatient(PatientBean patientBean) {
 		return "patient/add";
 	}
-//
-//	@PostMapping("/patients/validate")
-//	public String validate(@Valid Patient patient, BindingResult result, Model model) {
-//		if (!result.hasErrors()) {
-//			patientService.save(patient);
-//			return "redirect:/patients/list";
-//		}
-//		return "patient/add";
-//	}
-//
-//	@GetMapping("/patients/update/{id}")
-//	public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-//		Patient patient = patientService.findById(id);
-//		model.addAttribute("patient", patient);
-//		return "patient/update";
-//	}
-//
-//	@PostMapping("/patients/update/{id}")
-//	public String updatePatient(@PathVariable("id") Integer id, @Valid Patient patient, BindingResult result,
-//			Model model) {
-//		if (result.hasErrors()) {
-//			return "patient/update";
-//		}
-//		patient.setId(id);
-//		patientService.save(patient);
-//		model.addAttribute("patient", patientService.findAll());
-//		return "redirect:/patients/list";
-//	}
-//
-//	@GetMapping("/patients/delete/{id}")
-//	public String deletePatient(@PathVariable("id") Integer id, Model model) {
-//		Patient patient = patientService.findById(id);
-//		if (patient != null) {
-//			patientService.delete(patient);
-//		}
-//		model.addAttribute("patient", patientService.findAll());
-//		return "redirect:/patients/list";
-//	}
+
+	@PostMapping("/patients/validate")
+	public String validate(@Valid PatientBean patientBean, BindingResult result, Model model) {
+		if (!result.hasErrors()) {
+			patientsProxy.validate(patientBean.getId(), patientBean.getName(), patientBean.getFullname(),
+					patientBean.getBirthdate(), patientBean.getGender(), patientBean.getAddress(),
+					patientBean.getPhoneNumber());
+			return "redirect:/patients/list";
+		}
+		return "patient/add";
+	}
+
+	@GetMapping("/patients/update/{id}")
+	public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
+//		PatientBean patientBean = patientsProxy.findById(id);
+		PatientBean patientBean = patientsProxy.showUpdateForm(id, model);
+		model.addAttribute("patient", patientBean);
+		return "patient/update";
+	}
+
+	@PostMapping("/patients/update/{id}")
+	public String updatePatient(@PathVariable("id") Integer id, @Valid PatientBean patientBean, BindingResult result,
+			Model model) {
+		if (result.hasErrors()) {
+			return "patient/update";
+		}
+		patientBean.setId(id);
+		patientsProxy.validate(patientBean.getId(), patientBean.getName(), patientBean.getFullname(),
+				patientBean.getBirthdate(), patientBean.getGender(), patientBean.getAddress(),
+				patientBean.getPhoneNumber());
+		model.addAttribute("patient", patientsProxy.patientsList());
+		return "redirect:/patients/list";
+	}
+
+	@GetMapping("/patients/delete/{id}")
+	public String deletePatient(@PathVariable("id") Integer id, Model model) {
+		PatientBean patientBean = patientsProxy.findById(id);
+		if (patientBean != null) {
+			patientsProxy.delete(patientBean);
+		}
+		model.addAttribute("patient", patientsProxy.patientsList());
+		return "redirect:/patients/list";
+	}
 
 }

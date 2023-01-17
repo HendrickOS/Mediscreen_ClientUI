@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,10 +19,21 @@ public interface MicroservicePatientsProxy {
 	@RequestMapping(value = "/patients")
 	List<PatientBean> patientsList();
 
-	@PostMapping(value = "/validate")
+	@GetMapping("/patients/add")
+	public String addPatient(PatientBean patientBean);
+
+	@PostMapping(value = "patients/validate")
 	PatientBean validate(@RequestParam("id") Integer id, @RequestParam("name") String name,
 			@RequestParam("fullname") String fullname, @RequestParam("birthdate") Date birthdate,
 			@RequestParam("gender") String gender, @RequestParam("address") String address,
 			@RequestParam("phoneNumber") String phoneNumber);
+
+//	@GetMapping("/patients/update/{id}")
+//	public PatientBean findById(Integer id);
+	@GetMapping("/patients/update/{id}")
+	public PatientBean showUpdateForm(@PathVariable("id") Integer id, Model model);
+
+	@GetMapping("/patients/delete/{id}")
+	void delete(PatientBean patientBean);
 
 }
