@@ -36,7 +36,7 @@ public class NoteProxyController {
 	}
 
 	@PostMapping("/notes/validate")
-	public String validate(@Valid NoteBean noteBean, BindingResult result, Model model) {
+	public String validate(@Valid NoteBean noteBean, BindingResult result) {
 		if (!result.hasErrors()) {
 			notesProxy.validate(noteBean.getId(), noteBean.getPatientsName(), noteBean.getCommentary());
 			return "redirect:/notes/list";

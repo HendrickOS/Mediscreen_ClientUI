@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,12 +28,22 @@ public interface MicroservicePatientsProxy {
 			@RequestParam("gender") String gender, @RequestParam("address") String address,
 			@RequestParam("phoneNumber") String phoneNumber);
 
-//	@GetMapping("/patients/update/{id}")
-//	public PatientBean findById(Integer id);
 	@GetMapping("/patients/update/{id}")
-	public PatientBean showUpdateForm(@PathVariable("id") Integer id, Model model);
+	public PatientBean findById(Integer id);
 
-	@GetMapping("/patients/delete/{id}")
-	void delete(PatientBean patientBean);
+//	@GetMapping("/patients/update/{id}")
+//	public PatientBean showUpdateForm(@PathVariable("id") Integer id, Model model);
+
+	@PostMapping("/patients/update/{id}")
+	PatientBean updatePatient(@RequestParam("id") Integer id, @RequestParam("name") String name,
+			@RequestParam("fullname") String fullname, @RequestParam("birthdate") Date birthdate,
+			@RequestParam("gender") String gender, @RequestParam("address") String address,
+			@RequestParam("phoneNumber") String phoneNumber);
+
+	@PostMapping("/patients/update/{id}")
+	List<PatientBean> listOfPatients();
+
+	@DeleteMapping("/patients/delete")
+	void delete(@PathVariable("id") Integer id);
 
 }

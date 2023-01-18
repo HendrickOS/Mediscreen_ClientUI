@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,8 +50,8 @@ public class PatientProxyController {
 
 	@GetMapping("/patients/update/{id}")
 	public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-//		PatientBean patientBean = patientsProxy.findById(id);
-		PatientBean patientBean = patientsProxy.showUpdateForm(id, model);
+		PatientBean patientBean = patientsProxy.findById(id);
+//		PatientBean patientBean = patientsProxy.showUpdateForm(id, model);
 		model.addAttribute("patient", patientBean);
 		return "patient/update";
 	}
@@ -62,19 +63,19 @@ public class PatientProxyController {
 			return "patient/update";
 		}
 		patientBean.setId(id);
-		patientsProxy.validate(patientBean.getId(), patientBean.getName(), patientBean.getFullname(),
+		patientsProxy.updatePatient(patientBean.getId(), patientBean.getName(), patientBean.getFullname(),
 				patientBean.getBirthdate(), patientBean.getGender(), patientBean.getAddress(),
 				patientBean.getPhoneNumber());
-		model.addAttribute("patient", patientsProxy.patientsList());
+		model.addAttribute("patient", patientsProxy.listOfPatients());
 		return "redirect:/patients/list";
 	}
 
-	@GetMapping("/patients/delete/{id}")
-	public String deletePatient(@PathVariable("id") Integer id, Model model) {
-		PatientBean patientBean = patientsProxy.findById(id);
-		if (patientBean != null) {
-			patientsProxy.delete(patientBean);
-		}
+	@DeleteMapping("/patients/delete/{id}")
+	public String deletePatient(Integer id, Model model) {
+//		PatientBean patientBean = patientsProxy.findById(id);
+//		if (patientBean != null) {
+		patientsProxy.delete(id);
+//		}
 		model.addAttribute("patient", patientsProxy.patientsList());
 		return "redirect:/patients/list";
 	}
