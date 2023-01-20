@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project9.Mediscreen_ClientUI.beans.NoteBean;
 import com.project9.Mediscreen_ClientUI.proxies.MicroserviceNotesProxy;
@@ -23,7 +22,7 @@ public class NoteProxyController {
 		this.notesProxy = notesProxy;
 	}
 
-	@RequestMapping("/notes/list")
+	@GetMapping("/notes/list")
 	public String notesList(Model model, String patientsName) {
 		List<NoteBean> notes = notesProxy.findByPatientsName(patientsName);
 		model.addAttribute("note", notes);

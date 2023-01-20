@@ -1,8 +1,10 @@
 package com.project9.Mediscreen_ClientUI.beans;
 
+import org.bson.types.ObjectId;
+
 public class NoteBean {
 
-	private Integer id;
+	private ObjectId id;
 	private String patientsName;
 	private String commentary;
 
@@ -10,11 +12,11 @@ public class NoteBean {
 
 	}
 
-	public Integer getId() {
+	public ObjectId getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 

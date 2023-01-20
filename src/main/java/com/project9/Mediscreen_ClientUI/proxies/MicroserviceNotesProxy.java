@@ -2,6 +2,7 @@ package com.project9.Mediscreen_ClientUI.proxies;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,7 @@ public interface MicroserviceNotesProxy {
 	public String addNote(NoteBean noteBean);
 
 	@PostMapping("/notes/validate")
-	NoteBean validate(@RequestParam("id") Integer id, @RequestParam("patientsName") String patientsName,
+	NoteBean validate(@RequestParam("id") ObjectId id, @RequestParam("patientsName") String patientsName,
 			@RequestParam("commentary") String commentary);
 
 }
