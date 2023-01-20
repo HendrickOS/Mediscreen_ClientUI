@@ -38,7 +38,7 @@ public class PatientProxyController {
 	}
 
 	@PostMapping("/patients/validate")
-	public String validate(@Valid PatientBean patientBean, BindingResult result, Model model) {
+	public String validate(@Valid PatientBean patientBean, BindingResult result) {
 		if (!result.hasErrors()) {
 			patientsProxy.validate(patientBean.getId(), patientBean.getName(), patientBean.getFullname(),
 					patientBean.getBirthdate(), patientBean.getGender(), patientBean.getAddress(),

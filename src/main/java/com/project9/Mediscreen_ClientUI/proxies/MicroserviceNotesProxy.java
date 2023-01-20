@@ -13,7 +13,6 @@ import com.project9.Mediscreen_ClientUI.beans.NoteBean;
 @FeignClient(name = "microservice-note", url = "localhost:8082")
 public interface MicroserviceNotesProxy {
 
-//	@GetMapping(value = "/notes/list")
 	@RequestMapping(value = "/notes")
 	List<NoteBean> findByPatientsName(String patientsName);
 
