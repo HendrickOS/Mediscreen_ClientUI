@@ -15,7 +15,7 @@ import com.project9.Mediscreen_ClientUI.beans.NoteBean;
 public interface MicroserviceNotesProxy {
 
 	@RequestMapping(value = "/notes")
-	List<NoteBean> findByPatientsName(String patientsName);
+	List<NoteBean> findByPatientsName(@RequestParam("patientsName") String patientsName);
 
 	@GetMapping("/notes/add")
 	public String addNote(NoteBean noteBean);
