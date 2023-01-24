@@ -7,8 +7,8 @@ import com.project9.Mediscreen_ClientUI.beans.PatientBean;
 
 public class PatientAssessment {
 
-	PatientBean patientBean;
-	List<NoteBean> listOfNotesBean;
+	private PatientBean patientBean;
+	private List<NoteBean> listOfNotesBean;
 
 	public PatientBean getPatientBean() {
 		return patientBean;
