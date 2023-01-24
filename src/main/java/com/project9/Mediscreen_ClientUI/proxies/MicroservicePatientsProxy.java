@@ -31,6 +31,9 @@ public interface MicroservicePatientsProxy {
 	@GetMapping("/patients/update/{id}")
 	public PatientBean findById(Integer id);
 
+	@GetMapping("/patients/{fullname}")
+	public PatientBean patientByFullname(@RequestParam("fullname") String fullname);
+
 //	@GetMapping("/patients/update/{id}")
 //	public PatientBean showUpdateForm(@PathVariable("id") Integer id, Model model);
 
