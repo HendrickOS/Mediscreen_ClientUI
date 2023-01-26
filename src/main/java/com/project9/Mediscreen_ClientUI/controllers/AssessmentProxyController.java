@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.project9.Mediscreen_ClientUI.beans.NoteBean;
+import com.project9.Mediscreen_ClientUI.beans.PatientAssessmentBean;
 import com.project9.Mediscreen_ClientUI.beans.PatientBean;
-import com.project9.Mediscreen_ClientUI.domain.PatientAssessment;
 import com.project9.Mediscreen_ClientUI.proxies.MicroserviceAssessmentsProxy;
 import com.project9.Mediscreen_ClientUI.proxies.MicroserviceNotesProxy;
 import com.project9.Mediscreen_ClientUI.proxies.MicroservicePatientsProxy;
@@ -38,7 +38,7 @@ public class AssessmentProxyController {
 
 		// 3 - Contruire un objet patientAssessment qui contient les données du patients
 		// et des notes
-		PatientAssessment patientAssessment = new PatientAssessment();
+		PatientAssessmentBean patientAssessment = new PatientAssessmentBean();
 		patientAssessment.setPatientBean(patient);
 		patientAssessment.setListOfNotesBean(notes);
 

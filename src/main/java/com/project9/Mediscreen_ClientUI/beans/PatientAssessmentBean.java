@@ -1,11 +1,8 @@
-package com.project9.Mediscreen_ClientUI.domain;
+package com.project9.Mediscreen_ClientUI.beans;
 
 import java.util.List;
 
-import com.project9.Mediscreen_ClientUI.beans.NoteBean;
-import com.project9.Mediscreen_ClientUI.beans.PatientBean;
-
-public class PatientAssessment {
+public class PatientAssessmentBean {
 
 	private PatientBean patientBean;
 	private List<NoteBean> listOfNotesBean;

@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.project9.Mediscreen_ClientUI.beans.AssessmentBean;
-import com.project9.Mediscreen_ClientUI.domain.PatientAssessment;
+import com.project9.Mediscreen_ClientUI.beans.PatientAssessmentBean;
 
-@FeignClient(name = "microservice-assessment", url = "localhost:8084")
+@FeignClient(name = "microservice-assessment", url = "localhost:8083")
 public interface MicroserviceAssessmentsProxy {
 
 //	@GetMapping("/assessment")
 //	AssessmentBean assessmentByName(@RequestParam("familyName") String familyName);
 
 	@PostMapping("/assessment")
-	AssessmentBean assessmentOfPatient(@RequestBody PatientAssessment patientAssessment);
+	AssessmentBean assessmentOfPatient(@RequestBody PatientAssessmentBean patientAssessment);
 
 }
