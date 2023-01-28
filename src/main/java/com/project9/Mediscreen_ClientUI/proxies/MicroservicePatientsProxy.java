@@ -31,7 +31,7 @@ public interface MicroservicePatientsProxy {
 	@GetMapping("/patients/update/{id}")
 	public PatientBean findById(Integer id);
 
-	@GetMapping("/patients/{fullname}")
+	@GetMapping("/patients/{lastname}")
 	public PatientBean patientByLastname(@RequestParam("lastname") String lastname);
 
 //	@GetMapping("/patients/update/{id}")
