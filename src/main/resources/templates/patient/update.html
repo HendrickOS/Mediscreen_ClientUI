@@ -16,17 +16,17 @@
 		<form action="#" th:action="@{/patients/update/{id}(id=${patient.id})}" th:object="${patientBean}" method="post" class="form-horizontal" style="width: 100%">
 		
 			 <div class="form-group">
-				<label for="name" class="col-sm-2 control-label">Name</label>
+				<label for="lastname" class="col-sm-2 control-label">Last Name</label>
 				<div class="col-sm-10">
-					<input type="text" th:field="*{name}" id="name" placeholder="Name" class="col-4">
-					<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+					<input type="text" th:field="*{lastname}" id="lastname" placeholder="Lastname" class="col-4">
+					<p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="fullname" class="col-sm-2 control-label">Fullname</label>
+				<label for="firstname" class="col-sm-2 control-label">First Name</label>
 				<div class="col-sm-10">
-					<input type="text" th:field="*{fullname}" id="fullname" placeholder="Type" class="col-4">
-					<p class="text-danger" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></p>
+					<input type="text" th:field="*{firstname}" id="firstname" placeholder="Type" class="col-4">
+					<p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
 				</div>
 			</div>
 			<div class="form-group">

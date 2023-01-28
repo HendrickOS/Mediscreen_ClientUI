@@ -18,9 +18,9 @@
 		<a href="/notes/add" class="btn btn-primary btn-sm">Add New</a>
 		<table class="table table-bordered">
 			<thead>
-				<tr>
+				<tr class="text-center">
 					<th>Id</th>
-					<th>Patient's Name</th>
+					<th>Last Name of Patient</th>
 					<th>Commentary</th>
 					<th>Action</th>
 				</tr>
@@ -28,8 +28,8 @@
 			<tbody>
 				
 				<tr th:each="note : ${note}">
-					<td style="width: 10%" th:text="${note.id}"></td>
-					<td th:text="${note.patientsName}"></td>
+					<td style="width: 10%" class="text-center" th:text="${note.id}"></td>
+					<td class="text-center" th:text="${note.lastnameOfPatient}"></td>
 					<td th:text="${note.commentary}"></td>
 					<td style="width: 15%" class="text-center">
 						<a th:href="@{/notes/update/{id}(id=${note.id})}">Edit</a>&nbsp;|&nbsp;

@@ -23,8 +23,8 @@ public class NoteProxyController {
 	}
 
 	@GetMapping("/notes/list")
-	public String notesList(Model model, String patientsName) {
-		List<NoteBean> notes = notesProxy.findByPatientsName(patientsName);
+	public String notesList(Model model, String lastnameOfPatient) {
+		List<NoteBean> notes = notesProxy.findByLastnameOfPatient(lastnameOfPatient);
 		model.addAttribute("note", notes);
 		return "note/list";
 	}
@@ -37,7 +37,7 @@ public class NoteProxyController {
 	@PostMapping("/notes/validate")
 	public String validate(@Valid NoteBean noteBean, BindingResult result) {
 		if (!result.hasErrors()) {
-			notesProxy.validate(noteBean.getId(), noteBean.getPatientsName(), noteBean.getCommentary());
+			notesProxy.validate(noteBean.getId(), noteBean.getLastnameOfPatient(), noteBean.getCommentary());
 			return "redirect:/notes/list";
 		}
 		return "note/add";

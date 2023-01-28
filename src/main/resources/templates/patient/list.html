@@ -18,10 +18,10 @@
 		<a href="/patients/add" class="btn btn-primary btn-sm">Add New</a>
 		<table class="table table-bordered">
 			<thead>
-				<tr>
+				<tr class="text-center">
 					<th>Id</th>
-					<th>Name</th>
-					<th>Fullname</th>
+					<th>Last Name</th>
+					<th>First Name</th>
 					<th>Birthdate</th>
 					<th>Gender</th>
 					<th>Address</th>
@@ -34,20 +34,20 @@
 			<tbody>
 				
 				<tr th:each="patient : ${patient}">
-					<td style="width: 10%" th:text="${patient.id}"></td>
-					<td th:text="${patient.name}"></td>
-					<td th:text="${patient.fullname}"></td>
-					<td style="width: 25%" th:text="${patient.birthdate}"></td>
-					<td th:text="${patient.gender}"></td>
-					<td th:text="${patient.address}"></td>
-					<td th:text="${patient.phoneNumber}"></td>
-					<td style="width: 15%" class="text-center">
-						<a th:href="@{/notes/list?patientsName={patientsName}(patientsName=${patient.name})}">Notes</a>
+					<td class="text-center" th:text="${patient.id}"></td>
+					<td class="text-center" th:text="${patient.lastname}"></td>
+					<td class="text-center" th:text="${patient.firstname}"></td>
+					<td style="width: 15%" class="text-center" th:text="${patient.birthdate}"></td>
+					<td class="text-center" th:text="${patient.gender}"></td>
+					<td style="width: 25%" class="text-center" th:text="${patient.address}"></td>
+					<td style="width: 25%" class="text-center" th:text="${patient.phoneNumber}"></td>
+					<td style="width: 10%" class="text-center">
+						<a th:href="@{/notes/list?lastnameOfPatient={lastnameOfPatient}(lastnameOfPatient=${patient.lastname})}">Notes</a>
 					</td>
 					<td style="width: 15%" class="text-center">
-						<a th:href="@{/assessment?familyName={familyName}(familyName=${patient.name})}">Assessments</a>
+						<a th:href="@{/assessment?familyName={familyName}(familyName=${patient.lastname})}">Assessments</a>
 					</td>
-					<td style="width: 15%" class="text-center">
+					<td style="width: 25%" class="text-center">
 						<a th:href="@{/patients/update/{id}(id=${patient.id})}">Edit</a>&nbsp;|&nbsp;
 						<a th:href="@{/patients/delete/{id}(id=${patient.id})}">Delete</a>
 					</td>

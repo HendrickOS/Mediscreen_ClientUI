@@ -5,8 +5,8 @@ import java.sql.Date;
 public class PatientBean {
 
 	private Integer id;
-	private String name;
-	private String fullname;
+	private String lastname;
+	private String firstname;
 	private Date birthdate;
 	private String gender;
 	private String address;
@@ -16,6 +16,22 @@ public class PatientBean {
 
 	}
 
+	@Override
+	public String toString() {
+		return "PatientBean [id=" + id + ", lastname=" + lastname + ", firstname=" + firstname + ", birthdate="
+				+ birthdate + ", gender=" + gender + ", address=" + address + ", phoneNumber=" + phoneNumber + "]";
+	}
+
+//	@Override
+//	public String toString() {
+//		return "PatientBean [id=" + id + ", lastname=" + lastname + ", firstname=" + firstname + ", birthdate="
+//				+ birthdate + ", gender=" + gender + ", address=" + address + ", phoneNumber=" + phoneNumber
+//				+ ", getId()=" + getId() + ", getLastname()=" + getLastname() + ", getFirstname()=" + getFirstname()
+//				+ ", getBirthdate()=" + getBirthdate() + ", getGender()=" + getGender() + ", getAddress()="
+//				+ getAddress() + ", getPhoneNumber()=" + getPhoneNumber() + ", getClass()=" + getClass()
+//				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+//	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -24,20 +40,20 @@ public class PatientBean {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public String getFullname() {
-		return fullname;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
 	public Date getBirthdate() {
@@ -70,12 +86,6 @@ public class PatientBean {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	@Override
-	public String toString() {
-		return "PatientBean [id=" + id + ", name=" + name + ", fullname=" + fullname + ", birthdate=" + birthdate
-				+ ", gender=" + gender + ", address=" + address + ", phoneNumber=" + phoneNumber + "]";
 	}
 
 }

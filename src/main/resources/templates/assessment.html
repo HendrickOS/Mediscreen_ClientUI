@@ -19,8 +19,8 @@
 		<div class="row">
 			<table class="table table-bordered">
 				<thead>
-					<tr>
-						<th>Patient's Name</th>
+					<tr class="text-center">
+						<th>Last Name of Patient</th>
 						<th>Gender</th>
 						<th>Age</th>
 						<th>Trigger Words</th>
@@ -28,7 +28,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="assessment : ${assessment}">
+					<tr class="text-center" th:each="assessment : ${assessment}">
 						<td style="width: 10%" th:text="${assessment.familyName}"></td>
 						<td th:text="${assessment.gender}"></td>
 						<td th:text="${assessment.age}"></td>

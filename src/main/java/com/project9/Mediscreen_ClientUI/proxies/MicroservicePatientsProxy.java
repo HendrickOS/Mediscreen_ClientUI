@@ -23,8 +23,8 @@ public interface MicroservicePatientsProxy {
 	public String addPatient(PatientBean patientBean);
 
 	@PostMapping(value = "patients/validate")
-	PatientBean validate(@RequestParam("id") Integer id, @RequestParam("name") String name,
-			@RequestParam("fullname") String fullname, @RequestParam("birthdate") Date birthdate,
+	PatientBean validate(@RequestParam("id") Integer id, @RequestParam("lastname") String lastname,
+			@RequestParam("firstname") String firstname, @RequestParam("birthdate") Date birthdate,
 			@RequestParam("gender") String gender, @RequestParam("address") String address,
 			@RequestParam("phoneNumber") String phoneNumber);
 
@@ -32,14 +32,14 @@ public interface MicroservicePatientsProxy {
 	public PatientBean findById(Integer id);
 
 	@GetMapping("/patients/{fullname}")
-	public PatientBean patientByFullname(@RequestParam("fullname") String fullname);
+	public PatientBean patientByLastname(@RequestParam("lastname") String lastname);
 
 //	@GetMapping("/patients/update/{id}")
 //	public PatientBean showUpdateForm(@PathVariable("id") Integer id, Model model);
 
 	@PostMapping("/patients/update/{id}")
-	PatientBean updatePatient(@RequestParam("id") Integer id, @RequestParam("name") String name,
-			@RequestParam("fullname") String fullname, @RequestParam("birthdate") Date birthdate,
+	PatientBean updatePatient(@RequestParam("id") Integer id, @RequestParam("lastname") String lastname,
+			@RequestParam("firstname") String firstname, @RequestParam("birthdate") Date birthdate,
 			@RequestParam("gender") String gender, @RequestParam("address") String address,
 			@RequestParam("phoneNumber") String phoneNumber);
 

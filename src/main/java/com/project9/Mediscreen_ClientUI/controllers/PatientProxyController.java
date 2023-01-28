@@ -40,7 +40,7 @@ public class PatientProxyController {
 	@PostMapping("/patients/validate")
 	public String validate(@Valid PatientBean patientBean, BindingResult result) {
 		if (!result.hasErrors()) {
-			patientsProxy.validate(patientBean.getId(), patientBean.getName(), patientBean.getFullname(),
+			patientsProxy.validate(patientBean.getId(), patientBean.getLastname(), patientBean.getFirstname(),
 					patientBean.getBirthdate(), patientBean.getGender(), patientBean.getAddress(),
 					patientBean.getPhoneNumber());
 			return "redirect:/patients/list";
@@ -63,7 +63,7 @@ public class PatientProxyController {
 			return "patient/update";
 		}
 		patientBean.setId(id);
-		patientsProxy.updatePatient(patientBean.getId(), patientBean.getName(), patientBean.getFullname(),
+		patientsProxy.updatePatient(patientBean.getId(), patientBean.getLastname(), patientBean.getFirstname(),
 				patientBean.getBirthdate(), patientBean.getGender(), patientBean.getAddress(),
 				patientBean.getPhoneNumber());
 		model.addAttribute("patient", patientsProxy.listOfPatients());

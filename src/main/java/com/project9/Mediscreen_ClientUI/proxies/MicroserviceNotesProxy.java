@@ -15,13 +15,13 @@ import com.project9.Mediscreen_ClientUI.beans.NoteBean;
 public interface MicroserviceNotesProxy {
 
 	@RequestMapping(value = "/notes")
-	List<NoteBean> findByPatientsName(@RequestParam("patientsName") String patientsName);
+	List<NoteBean> findByLastnameOfPatient(@RequestParam("lastnameOfPatient") String lastnameOfPatient);
 
 	@GetMapping("/notes/add")
 	public String addNote(NoteBean noteBean);
 
 	@PostMapping("/notes/validate")
-	NoteBean validate(@RequestParam("id") ObjectId id, @RequestParam("patientsName") String patientsName,
+	NoteBean validate(@RequestParam("id") ObjectId id, @RequestParam("lastnameOfPatient") String lastnameOfPatient,
 			@RequestParam("commentary") String commentary);
 
 }

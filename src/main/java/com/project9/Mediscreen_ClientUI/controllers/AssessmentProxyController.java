@@ -31,10 +31,10 @@ public class AssessmentProxyController {
 	public String patientsAssessment(Model model, String familyName) {
 
 		// 1 - Appeler patientService pour récupérer les infos patients
-		PatientBean patient = patientsProxy.patientByFullname(familyName);
+		PatientBean patient = patientsProxy.patientByLastname(familyName);
 
 		// 2 - Appeler noteService pour récupérer les notes du patient
-		List<NoteBean> notes = notesProxy.findByPatientsName(familyName);
+		List<NoteBean> notes = notesProxy.findByLastnameOfPatient(familyName);
 
 		// 3 - Contruire un objet patientAssessment qui contient les données du patients
 		// et des notes
