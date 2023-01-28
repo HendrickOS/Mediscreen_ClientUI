@@ -30,21 +30,15 @@ public class AssessmentProxyController {
 	@GetMapping("/assessment")
 	public String patientsAssessment(Model model, String familyName) {
 
-		// 1 - Appeler patientService pour récupérer les infos patients
 		PatientBean patient = patientsProxy.patientByLastname(familyName);
 
-		// 2 - Appeler noteService pour récupérer les notes du patient
 		List<NoteBean> notes = notesProxy.findByLastnameOfPatient(familyName);
 
-		// 3 - Contruire un objet patientAssessment qui contient les données du patients
-		// et des notes
 		PatientAssessmentBean patientAssessment = new PatientAssessmentBean();
 		patientAssessment.setPatientBean(patient);
 		patientAssessment.setListOfNotesBean(notes);
 
-		// 4 - Appeler le microserviceAssessment
 		model.addAttribute("assessment", assessmentsProxy.assessmentOfPatient(patientAssessment));
-//		model.addAttribute("assessment", assessmentsProxy.assessmentByName(familyName));
 
 		return "assessment";
 	}

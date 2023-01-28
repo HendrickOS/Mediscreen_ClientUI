@@ -45,7 +45,7 @@
 						<a th:href="@{/notes/list?lastnameOfPatient={lastnameOfPatient}(lastnameOfPatient=${patient.lastname})}">Notes</a>
 					</td>
 					<td style="width: 15%" class="text-center">
-						<a th:href="@{/assessment?familyName={familyName}(familyName=${patient.lastname})}">Assessments</a>
+						<a th:href="@{/assessment?familyName={familyName}(familyName=${patient.lastname})}">Assessment</a>
 					</td>
 					<td style="width: 25%" class="text-center">
 						<a th:href="@{/patients/update/{id}(id=${patient.id})}">Edit</a>&nbsp;|&nbsp;
