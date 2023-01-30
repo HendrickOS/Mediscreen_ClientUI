@@ -28,23 +28,17 @@ public interface MicroservicePatientsProxy {
 			@RequestParam("gender") String gender, @RequestParam("address") String address,
 			@RequestParam("phoneNumber") String phoneNumber);
 
-	@GetMapping("/patients/update/{id}")
-	public PatientBean findById(Integer id);
-
 	@GetMapping("/patients/{lastname}")
 	public PatientBean patientByLastname(@RequestParam("lastname") String lastname);
 
-//	@GetMapping("/patients/update/{id}")
-//	public PatientBean showUpdateForm(@PathVariable("id") Integer id, Model model);
+	@GetMapping("/patients/update/{id}")
+	public PatientBean showUpdateForm(@RequestParam("id") Integer id);
 
 	@PostMapping("/patients/update/{id}")
 	PatientBean updatePatient(@RequestParam("id") Integer id, @RequestParam("lastname") String lastname,
 			@RequestParam("firstname") String firstname, @RequestParam("birthdate") Date birthdate,
 			@RequestParam("gender") String gender, @RequestParam("address") String address,
 			@RequestParam("phoneNumber") String phoneNumber);
-
-	@PostMapping("/patients/update/{id}")
-	List<PatientBean> listOfPatients();
 
 	@DeleteMapping("/patients/delete")
 	void delete(@PathVariable("id") Integer id);

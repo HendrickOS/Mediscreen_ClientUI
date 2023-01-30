@@ -50,8 +50,7 @@ public class PatientProxyController {
 
 	@GetMapping("/patients/update/{id}")
 	public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-		PatientBean patientBean = patientsProxy.findById(id);
-//		PatientBean patientBean = patientsProxy.showUpdateForm(id, model);
+		PatientBean patientBean = patientsProxy.showUpdateForm(id);
 		model.addAttribute("patient", patientBean);
 		return "patient/update";
 	}
@@ -66,7 +65,6 @@ public class PatientProxyController {
 		patientsProxy.updatePatient(patientBean.getId(), patientBean.getLastname(), patientBean.getFirstname(),
 				patientBean.getBirthdate(), patientBean.getGender(), patientBean.getAddress(),
 				patientBean.getPhoneNumber());
-		model.addAttribute("patient", patientsProxy.listOfPatients());
 		return "redirect:/patients/list";
 	}
 

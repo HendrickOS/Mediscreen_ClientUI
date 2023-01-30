@@ -38,7 +38,7 @@ public class NoteProxyController {
 	public String validate(@Valid NoteBean noteBean, BindingResult result) {
 		if (!result.hasErrors()) {
 			notesProxy.validate(noteBean.getId(), noteBean.getLastnameOfPatient(), noteBean.getCommentary());
-			return "redirect:/notes/list";
+			return "redirect:/patients/list";
 		}
 		return "note/add";
 	}
