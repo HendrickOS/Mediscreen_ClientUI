@@ -4,9 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +38,7 @@ public interface MicroservicePatientsProxy {
 			@RequestParam("gender") String gender, @RequestParam("address") String address,
 			@RequestParam("phoneNumber") String phoneNumber);
 
-	@DeleteMapping("/patients/delete")
-	void delete(@PathVariable("id") Integer id);
+	@GetMapping("/patients/delete/{id}")
+	void deleteById(@RequestParam("id") Integer id);
 
 }

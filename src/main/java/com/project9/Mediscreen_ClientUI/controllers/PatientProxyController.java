@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,13 +67,9 @@ public class PatientProxyController {
 		return "redirect:/patients/list";
 	}
 
-	@DeleteMapping("/patients/delete/{id}")
-	public String deletePatient(Integer id, Model model) {
-//		PatientBean patientBean = patientsProxy.findById(id);
-//		if (patientBean != null) {
-		patientsProxy.delete(id);
-//		}
-		model.addAttribute("patient", patientsProxy.patientsList());
+	@GetMapping("/patients/delete/{id}")
+	public String deletePatient(@PathVariable("id") Integer id, Model model) {
+		patientsProxy.deleteById(id);
 		return "redirect:/patients/list";
 	}
 
