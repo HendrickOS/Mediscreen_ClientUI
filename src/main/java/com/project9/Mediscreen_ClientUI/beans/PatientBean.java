@@ -22,16 +22,6 @@ public class PatientBean {
 				+ birthdate + ", gender=" + gender + ", address=" + address + ", phoneNumber=" + phoneNumber + "]";
 	}
 
-//	@Override
-//	public String toString() {
-//		return "PatientBean [id=" + id + ", lastname=" + lastname + ", firstname=" + firstname + ", birthdate="
-//				+ birthdate + ", gender=" + gender + ", address=" + address + ", phoneNumber=" + phoneNumber
-//				+ ", getId()=" + getId() + ", getLastname()=" + getLastname() + ", getFirstname()=" + getFirstname()
-//				+ ", getBirthdate()=" + getBirthdate() + ", getGender()=" + getGender() + ", getAddress()="
-//				+ getAddress() + ", getPhoneNumber()=" + getPhoneNumber() + ", getClass()=" + getClass()
-//				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-//	}
-
 	public Integer getId() {
 		return id;
 	}

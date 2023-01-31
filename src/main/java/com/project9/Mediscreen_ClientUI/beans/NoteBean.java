@@ -2,7 +2,6 @@ package com.project9.Mediscreen_ClientUI.beans;
 
 public class NoteBean {
 
-//	private ObjectId id;
 	private String id;
 	private String lastnameOfPatient;
 	private String commentary;
@@ -10,19 +9,6 @@ public class NoteBean {
 	public NoteBean() {
 
 	}
-
-//	@Override
-//	public String toString() {
-//		return "NoteBean [id=" + id + ", lastnameOfPatient=" + lastnameOfPatient + ", commentary=" + commentary + "]";
-//	}
-//
-//	public ObjectId getId() {
-//		return id;
-//	}
-//
-//	public void setId(ObjectId id) {
-//		this.id = id;
-//	}
 
 	@Override
 	public String toString() {

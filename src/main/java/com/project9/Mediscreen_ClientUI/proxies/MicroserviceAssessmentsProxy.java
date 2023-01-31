@@ -10,9 +10,6 @@ import com.project9.Mediscreen_ClientUI.beans.PatientAssessmentBean;
 @FeignClient(name = "microservice-assessment", url = "localhost:8083")
 public interface MicroserviceAssessmentsProxy {
 
-//	@GetMapping("/assessment")
-//	AssessmentBean assessmentByName(@RequestParam("familyName") String familyName);
-
 	@PostMapping("/assessment")
 	AssessmentBean assessmentOfPatient(@RequestBody PatientAssessmentBean patientAssessment);
 

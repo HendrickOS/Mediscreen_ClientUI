@@ -22,20 +22,15 @@ public interface MicroserviceNotesProxy {
 	@PostMapping("/notes/validate")
 	NoteBean validate(@RequestParam("id") String id, @RequestParam("lastnameOfPatient") String lastnameOfPatient,
 			@RequestParam("commentary") String commentary);
-//	NoteBean validate(@RequestParam("id") ObjectId id, @RequestParam("lastnameOfPatient") String lastnameOfPatient,
-//			@RequestParam("commentary") String commentary);
 
 	@GetMapping("/notes/update/{id}")
 	public NoteBean showUpdateForm(@RequestParam("id") String id);
-//	public NoteBean showUpdateForm(@RequestParam("id") ObjectId id);
 
 	@PostMapping("/notes/update/{id}")
 	NoteBean updateNote(@RequestParam("id") String id, @RequestParam("lastnameOfPatient") String lastnameOfPatient,
-//	NoteBean updateNote(@RequestParam("id") ObjectId id, @RequestParam("lastnameOfPatient") String lastnameOfPatient,
 			@RequestParam("commentary") String commentary);
 
 	@GetMapping("/notes/delete/{id}")
 	void deleteById(@RequestParam("id") String id);
-//	void deleteById(@RequestParam("id") ObjectId id);
 
 }

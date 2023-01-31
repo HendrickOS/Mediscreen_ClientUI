@@ -46,7 +46,6 @@ public class NoteProxyController {
 
 	@GetMapping("/notes/update/{id}")
 	public String showUpdateForm(@PathVariable("id") String id, Model model) {
-//	public String showUpdateForm(@PathVariable("id") ObjectId id, Model model) {
 		NoteBean noteBean = notesProxy.showUpdateForm(id);
 		model.addAttribute("note", noteBean);
 		return "note/update";
@@ -54,7 +53,6 @@ public class NoteProxyController {
 
 	@PostMapping("/notes/update/{id}")
 	public String updateNote(@PathVariable("id") String id, @Valid NoteBean noteBean, BindingResult result,
-//	public String updateNote(@PathVariable("id") ObjectId id, @Valid NoteBean noteBean, BindingResult result,
 			Model model) {
 		if (result.hasErrors()) {
 			return "note/update";
@@ -66,12 +64,6 @@ public class NoteProxyController {
 
 	@GetMapping("/notes/delete/{id}")
 	public String deleteNote(@PathVariable("id") String id, Model model) {
-//	public String deleteNote(@PathVariable("id") ObjectId id, Model model) {
-//		Note note = noteService.findById(id);
-//		if (note != null) {
-//			noteService.delete(note);
-//		}
-//		model.addAttribute("note", noteService.findAll());
 		notesProxy.deleteById(id);
 		return "redirect:/notes/list";
 	}
