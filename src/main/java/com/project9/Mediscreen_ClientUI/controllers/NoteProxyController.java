@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.project9.Mediscreen_ClientUI.beans.NoteBean;
@@ -43,32 +44,36 @@ public class NoteProxyController {
 		return "note/add";
 	}
 
-//	@GetMapping("/notes/update/{id}")
-//	public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-//		Note note = noteService.findById(id);
-//		model.addAttribute("note", note);
-//		return "note/update";
-//	}
-//
-//	@PostMapping("/notes/update/{id}")
-//	public String updateNote(@PathVariable("id") Integer id, @Valid Note note, BindingResult result, Model model) {
-//		if (result.hasErrors()) {
-//			return "note/update";
-//		}
-//		note.setId(id);
-//		noteService.save(note);
-//		model.addAttribute("note", noteService.findAll());
-//		return "redirect:/notes/list";
-//	}
-//
-//	@GetMapping("/notes/delete/{id}")
-//	public String deleteNote(@PathVariable("id") Integer id, Model model) {
+	@GetMapping("/notes/update/{id}")
+	public String showUpdateForm(@PathVariable("id") String id, Model model) {
+//	public String showUpdateForm(@PathVariable("id") ObjectId id, Model model) {
+		NoteBean noteBean = notesProxy.showUpdateForm(id);
+		model.addAttribute("note", noteBean);
+		return "note/update";
+	}
+
+	@PostMapping("/notes/update/{id}")
+	public String updateNote(@PathVariable("id") String id, @Valid NoteBean noteBean, BindingResult result,
+//	public String updateNote(@PathVariable("id") ObjectId id, @Valid NoteBean noteBean, BindingResult result,
+			Model model) {
+		if (result.hasErrors()) {
+			return "note/update";
+		}
+		noteBean.setId(id);
+		notesProxy.updateNote(noteBean.getId(), noteBean.getLastnameOfPatient(), noteBean.getCommentary());
+		return "redirect:/notes/list";
+	}
+
+	@GetMapping("/notes/delete/{id}")
+	public String deleteNote(@PathVariable("id") String id, Model model) {
+//	public String deleteNote(@PathVariable("id") ObjectId id, Model model) {
 //		Note note = noteService.findById(id);
 //		if (note != null) {
 //			noteService.delete(note);
 //		}
 //		model.addAttribute("note", noteService.findAll());
-//		return "redirect:/notes/list";
-//	}
+		notesProxy.deleteById(id);
+		return "redirect:/notes/list";
+	}
 
 }

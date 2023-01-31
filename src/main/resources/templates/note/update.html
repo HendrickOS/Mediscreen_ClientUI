@@ -16,9 +16,9 @@
 		<form action="#" th:action="@{/notes/update/{id}(id=${note.id})}" th:object="${note}" method="post" class="form-horizontal" style="width: 100%">
 		
 			 <div class="form-group">
-				<label for="lastnameOfPatient" class="col-sm-2 control-label">Last Name of Patient</label>
+				<label for="lastnameOfPatient" class="col-sm-2 control-label">Lastname of Patient</label>
 				<div class="col-sm-10">
-					<input type="text" th:field="*{lastnameOfPatient}" id="lastnameOfPatient" placeholder="Last Name of Patient" class="col-4">
+					<input type="text" th:field="*{lastnameOfPatient}" id="lastnameOfPatient" placeholder="LastNameOfPatient" class="col-4">
 					<p class="text-danger" th:if="${#fields.hasErrors('lastnameOfPatient')}" th:errors="*{lastnameOfPatient}"></p>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 			<div class="form-group">
 				<div class="col-sm-12">
 					<input type="hidden" th:field="*{id}">
-					<a class="btn btn-danger btn-sm" href="/notes/list">Cancel</a>
+					<a class="btn btn-danger btn-sm" href="/patients/list">Cancel</a>
 					<input class="btn btn-primary btn-sm" type="submit" value="Update Note">
 				</div>
 			</div>
