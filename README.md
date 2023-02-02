@@ -50,6 +50,7 @@ Then the apps analyses notes and produce a report to alarm doctors about their p
 
 
 - <u>**Initialisation :**</u>
+  - `mvn clean install` on all the projects to generate jar.
   - You can initialise NoSQL database by using a provided file located here : `src/main/resources/noteBDD_MongoDB.json`
     - If you want to do so here are the steps to follow using `MongoDB Compass` :
       1. Make sure you have Mongo data tools properly installed on your computer (link provided above).
