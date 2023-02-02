@@ -16,7 +16,7 @@ Then the apps analyses notes and produce a report to alarm doctors about their p
 - Ide : IntelliJ or Eclipse
 
 
-## How to run the
+## How to run the App
 1. First of all, make sure you created a Database named `postgres` with the password as shown in the table below has all the permissions on that database.
 2. Make also sure that your local `mysql port` is `5432`.
 3. No need to create a Mongo DB but still you hve to run a local server running on port 27017. 
