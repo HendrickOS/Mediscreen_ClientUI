@@ -9,11 +9,10 @@ Then the apps analyses notes and produce a report to alarm doctors about their p
 
 ## Prerequisite
 - [Java](https://www.java.com/download/ie_manual.jsp)
-- [Maven](https://maven.apache.org/download.cgi)
+- [Maven](https://maven.apache.org/download.cgi), please follow [these steps](https://www.tutorialspoint.com/maven/maven_environment_setup.htm) to properly install Maven on your environment setup
 - [PostgreSQL](https://www.postgresql.org/)
 - [MongoDB datatools (latest)](https://www.mongodb.com/docs/database-tools/installation/installation/)
 - [Docker desktop](https://docs.docker.com/desktop/)
-- Ide : IntelliJ or Eclipse
 
 
 ## How to run the App
@@ -42,7 +41,7 @@ Then the apps analyses notes and produce a report to alarm doctors about their p
 ### Database
 - There are 2 databases embedded inside the project.
   - _MySQL_ for `microservice-patient`
-  - _NoSQL (MongoDB)_ for `microservice-bote`
+  - _NoSQL (MongoDB)_ for `microservice-note`
 
 |    Database   |   Host    |      Local port      |      Name      |         Password         |
 |:-------------:|:---------:|:--------------------:|:--------------:|:------------------------:|
